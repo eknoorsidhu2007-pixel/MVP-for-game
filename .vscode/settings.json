@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "Truck quota game.sln"
+    "dotnet.defaultSolution": "Truck quota game.slnx"
 }
