@@ -31,8 +31,8 @@ public class TruckController : NetworkBehaviour
         rb = GetComponent<Rigidbody>();
         rb.interpolation = RigidbodyInterpolation.Interpolate;
         rb.mass = 2000f; // Heavy truck feel
-        rb.drag = 1f;
-        rb.angularDrag = 5f;
+        rb.linearDamping = 1f;
+        rb.angularDamping = 5f;
     }
 
     [ServerCallback]
@@ -50,8 +50,8 @@ public class TruckController : NetworkBehaviour
         {
             // No driver - idle deceleration
             ApplyBrakes();
-            isStopped = Mathf.Abs(rb.velocity.magnitude) < 0.5f;
-            currentSpeed = rb.velocity.magnitude;
+            isStopped = Mathf.Abs(rb.linearVelocity.magnitude) < 0.5f;
+            currentSpeed = rb.linearVelocity.magnitude;
             return;
         }
 
@@ -63,7 +63,7 @@ public class TruckController : NetworkBehaviour
     {
         bool wantsReverse = verticalInput < -0.1f;
         bool wantsForward = verticalInput > 0.1f;
-        float forwardVel = Vector3.Dot(rb.velocity, transform.forward);
+        float forwardVel = Vector3.Dot(rb.linearVelocity, transform.forward);
 
         if (wantsReverse && Mathf.Abs(forwardVel) > reverseThreshold)
         {
@@ -85,26 +85,26 @@ public class TruckController : NetworkBehaviour
         }
 
         // Steering only when moving
-        if (rb.velocity.magnitude > 1f)
+        if (rb.linearVelocity.magnitude > 1f)
         {
-            float steerFactor = Mathf.Clamp01(rb.velocity.magnitude / maxSpeed);
+            float steerFactor = Mathf.Clamp01(rb.linearVelocity.magnitude / maxSpeed);
             rb.MoveRotation(rb.rotation * Quaternion.Euler(0, horizontalInput * turnSpeed * steerFactor * Time.fixedDeltaTime, 0));
         }
 
         // Cap speed
-        if (rb.velocity.magnitude > maxSpeed)
+        if (rb.linearVelocity.magnitude > maxSpeed)
         {
-            rb.velocity = rb.velocity.normalized * maxSpeed;
+            rb.linearVelocity = rb.linearVelocity.normalized * maxSpeed;
         }
 
-        currentSpeed = rb.velocity.magnitude;
+        currentSpeed = rb.linearVelocity.magnitude;
         isStopped = currentSpeed < 0.5f;
     }
 
     [Server]
     private void ApplyBrakes()
     {
-        rb.AddForce(-rb.velocity * brakeForce, ForceMode.Acceleration);
+        rb.AddForce(-rb.linearVelocity * brakeForce, ForceMode.Acceleration);
     }
 
     // Called by the Driver player
