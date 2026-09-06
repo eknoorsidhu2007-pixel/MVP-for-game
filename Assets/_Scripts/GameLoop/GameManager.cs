@@ -19,8 +19,7 @@ public class GameManager : NetworkBehaviour
     public float nightDuration = 120f; // 2 minutes night
     public int maxDays = 7;
 
-    [Header("Events")]
-    public static event Action<GameState> OnGameStateChanged;
+ public static event Action<GameState> OnGameStateChanged;
     public static event Action<int> OnDayChanged;
 
     private void Awake()
