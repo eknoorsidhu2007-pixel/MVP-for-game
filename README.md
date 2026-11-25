@@ -1,4 +1,3 @@
-[README (10).md](https://github.com/user-attachments/files/35389262/README.10.md)
 # Convoy *(working title — swap this for whatever you two land on)*
 
 A 4-player co-op survival game built in Unity. You're driving a truck through bandit territory with a crew, trying to hit quota and get out alive. No GPS, just a paper map one player has to read out loud while someone else is driving and everyone else is getting shot at.
