@@ -1,0 +1,75 @@
+# Design Notes
+
+Raw design brainstorm, cleaned up and organized. This is the source material the roadmap in the main README is based on.
+
+## Premise
+
+Driving a truck, getting jumped by bandits, trying to lose as little cargo/money as possible so you can make quota and ship the goods. Bandits include dudes on helicopters with snipers.
+
+No GPS, just a regular paper map, and the Driver can't hold the map, so someone has to navigate them. All 4 players stay inside the truck cabin and can play minigames before things start happening.
+
+Future transport modes reuse the same premise with different flavor: a train heist (Wild West), and a pirate attack on a boat (cannonballs).
+
+## Progression & transport modes
+
+- Make money on a trucking run, spend it upgrading the truck: mounted guns, a big plow (like the Phantom Wedge), a sidecar for carrying things across long distances (also upgradeable).
+- Like Lethal Company's "moons," you choose which transport method/situation to take. Making good money early lets you buy a new delivery method.
+- New transport method unlocked roughly every 3 weeks of real-world release cadence (ships with the truck, then releases new modes over time) — this is a release-schedule idea, not an in-game mechanic.
+- Train mode: Wild West themed. Shooting at someone on horseback outside while they try to lasso you.
+- Boat mode: 1600s pirate themed, cannonballs.
+
+## Route & navigation
+
+- Draw and pre-plan your own route to the destination, trying to avoid bandit outposts and biker gangs.
+- Everyone can shoot from inside the truck, including the Driver, but only with a pistol (GTA-style). You can also shoot out the tires of other vehicles.
+- Truck has a gear system like Lethal Company's truck, but automatic, not manual (holding reverse while moving forward doesn't just reverse you).
+
+## Roles
+
+Driver, Navigator, Gunner, Engineer, with room for more roles later.
+
+**Lock-in system**: Valorant-style role selection. If two players want the same role, a coin flip decides, and the loser picks a different option.
+
+**Loose roles**: anyone can be any role, but each player's own stats for a role are independently leveled, not shared.
+
+- The Driver can leave the seat, crawl out the window, and fight with a mounted turret. The Navigator can leave the map inside for someone else to pick up and go fight too.
+- If the Engineer goes down mid-repair during a bandit attack, someone else can attempt the repair, but slower, since the Engineer's stats are specifically boosted for that role.
+- Each player upgrades their own role stats individually. One player upgrading Driver doesn't apply to every Driver, just that player, and anyone else choosing Driver has to upgrade their own stats separately.
+
+## Gameplay systems
+
+### Quota
+Pick a job from a job board. Each job specifies how many in-game days the run takes and what it pays, with risk attached to accepting it.
+
+### Sanity / Trauma meters
+- Driving too long raises a sanity meter, eventually causing hallucinations and requiring a swap to avoid "going crazy." High sanity causes inconsistent driving inputs.
+- Example hallucination: the truck appears to drift left to the Driver, but everyone else sees it driving straight, so the Driver corrects right and crashes.
+- Gunning down enemies for extended periods raises Trauma on the Gunner role.
+- Sleeping in the cabin reduces both meters.
+- High trauma/sanity can glitch proximity chat for the affected player.
+
+### Weather
+Fog, blood moon, thunderstorm, rain (light/heavy).
+
+## Item shop / preparation
+
+- At the start of each day, players get a limited-stock item selection (medkits, certain weapons) for that run. Possibly a timed "firesale" window (~5 minutes) to prevent stockpiling and keep runs challenging.
+
+## On the road
+
+- Convenience stores along the route for resupply.
+- Keep it hard enough that running out of medkits/ammo (Last of Us-style scarcity) is a real possibility, especially if a team is weaker at combat.
+- Stopping at all, even briefly, should feel scary and be a last resort, not a routine stop.
+- Truckers don't make much money and have to pay for their own gas; a day starts with whatever gas was left at the end of the previous day, forcing efficient routing and rationing.
+
+## Maps
+
+1. Slums (inspired by the Uncharted 4 truck chase)
+2. Forest highway
+
+## Undecided / to revisit
+
+- Single convenience store (forces a commit/risk decision at one point) vs. multiple stores (lets players choose between high-risk/high-reward and low-risk/lower-quality stops, where high risk could mean gangs or police presence).
+- Minigames for players stuck in the cabin during boring driving stretches.
+- CoD Zombies-style perks (e.g., insta-kill, death machine).
+- Possible pivot to a zombie/doomsday-prepper framing: player is a prepper/farmer doing supply runs for bunker communities and smaller survivor groups, with the bandit mechanic becoming raiders trying to steal supplies.
